@@ -1,0 +1,139 @@
+Validation run timestamp (UTC): 2026-03-26T21:10:12Z
+ed25519_verify version: 2.1.0
+Working directory: /home/utilisateur/Bureau/Ed25519Check
+Output directory:  /home/utilisateur/Bureau/Ed25519Check/validation_output_20260326T211012Z
+Source file:       /home/utilisateur/Bureau/Ed25519Check/ed25519_verify_v2.cpp
+
+--- uname -a ---
+Linux utilisateur-Default-string 6.14.0-37-generic #37~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov 20 10:25:38 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+
+--- os-release ---
+NAME="Linux Mint"
+VERSION="22.3 (Zena)"
+ID=linuxmint
+ID_LIKE="ubuntu debian"
+PRETTY_NAME="Linux Mint 22.3"
+VERSION_ID="22.3"
+HOME_URL="https://www.linuxmint.com/"
+SUPPORT_URL="https://forums.linuxmint.com/"
+BUG_REPORT_URL="http://linuxmint-troubleshooting-guide.readthedocs.io/en/latest/"
+PRIVACY_POLICY_URL="https://www.linuxmint.com/"
+VERSION_CODENAME=zena
+UBUNTU_CODENAME=noble
+
+--- hostnamectl ---
+ Static hostname: utilisateur-Default-string
+       Icon name: computer-desktop
+         Chassis: desktop 🖥️
+      Machine ID: 57af38c5f63c440aac3cb0aeeac451fa
+         Boot ID: 35011b4ac4394158b43a16690a0c3c74
+Operating System: Linux Mint 22.3
+          Kernel: Linux 6.14.0-37-generic
+    Architecture: x86-64
+ Hardware Vendor: Default string
+  Hardware Model: Default string
+Firmware Version: P3_F5_BI0012_IEC0003_AMI_28W
+   Firmware Date: Wed 2025-11-12
+    Firmware Age: 4month 1w 6d
+
+--- lscpu ---
+Architecture :                           x86_64
+Mode(s) opératoire(s) des processeurs :  32-bit, 64-bit
+Address sizes:                           43 bits physical, 48 bits virtual
+Boutisme :                               Little Endian
+Processeur(s) :                          4
+Liste de processeur(s) en ligne :        0-3
+Identifiant constructeur :               AuthenticAMD
+Nom de modèle :                          AMD Ryzen 3 3250U with Radeon Vega Mobile Gfx
+Famille de processeur :                  23
+Modèle :                                 32
+Thread(s) par cœur :                     2
+Cœur(s) par socket :                     2
+Socket(s) :                              1
+Révision :                               1
+Frequency boost:                         enabled
+CPU(s) scaling MHz:                      94%
+Vitesse maximale du processeur en MHz :  2600,0000
+Vitesse minimale du processeur en MHz :  1400,0000
+BogoMIPS :                               5190,28
+Drapaux :                                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb hw_pstate ssbd ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 rdseed adx smap clflushopt sha_ni xsaveopt xsavec xgetbv1 clzero xsaveerptr arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif overflow_recov succor smca sev sev_es
+Virtualisation :                         AMD-V
+Cache L1d :                              64 KiB (2 instances)
+Cache L1i :                              128 KiB (2 instances)
+Cache L2 :                               1 MiB (2 instances)
+Cache L3 :                               4 MiB (1 instance)
+Nœud(s) NUMA :                           1
+Nœud NUMA 0 de processeur(s) :           0-3
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Ghostwrite:                Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             Not affected
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Not affected
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Mitigation; untrained return thunk; SMT enabled with STIBP protection
+Vulnerability Spec rstack overflow:      Mitigation; Safe RET
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; STIBP always-on; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Not affected
+Vulnerability Vmscape:                   Mitigation; IBPB before exit to userspace
+
+--- nproc ---
+4
+
+--- free -h ---
+               total       utilisé      libre     partagé tamp/cache   disponible
+Mem:           5,7Gi       1,2Gi       3,4Gi       7,7Mi       1,3Gi       4,5Gi
+Échange:       2,0Gi          0B       2,0Gi
+
+--- lsblk ---
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda      8:0    0 238,5G  0 disk 
+├─sda1   8:1    0   100M  0 part /boot/efi
+├─sda2   8:2    0    16M  0 part 
+├─sda3   8:3    0   120G  0 part 
+├─sda4   8:4    0   1,2G  0 part 
+└─sda5   8:5    0 117,2G  0 part /
+sdb      8:16   1  57,8G  0 disk 
+├─sdb1   8:17   1   200M  0 part 
+└─sdb2   8:18   1  57,4G  0 part /media/utilisateur/QLIVE
+
+--- df -h ---
+Sys. de fichiers Taille Utilisé Dispo Uti% Monté sur
+tmpfs              589M    1,7M  587M   1% /run
+efivarfs           128K     12K  112K  10% /sys/firmware/efi/efivars
+/dev/sda5          115G     28G   82G  26% /
+tmpfs              2,9G       0  2,9G   0% /dev/shm
+tmpfs              5,0M     12K  5,0M   1% /run/lock
+/dev/sda1           96M     68M   29M  71% /boot/efi
+tmpfs              589M    212K  589M   1% /run/user/1000
+/dev/sdb2           58G    3,9M   58G   1% /media/utilisateur/QLIVE
+
+--- g++ --version ---
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+--- gcc --version ---
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+--- ld --version ---
+GNU ld (GNU Binutils for Ubuntu) 2.42
+Copyright (C) 2024 Free Software Foundation, Inc.
+Ce logiciel est libre; si vous le redistribuez, vous devez le faire selon les termes
+de la licence GNU General Public License version 3 ou postérieure selon votre besoin.
+Ce logiciel n'est couvert par aucune GARANTIE.
+
+--- sha256sum source ---
+d8f06d8239ea0aacdfe61b0e46b21439e5208617d525c3aa854656e59d053135  /home/utilisateur/Bureau/Ed25519Check/ed25519_verify_v2.cpp

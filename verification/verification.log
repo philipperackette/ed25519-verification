@@ -1,0 +1,365 @@
+
+===== Running verification (full) =====
+Command: /home/utilisateur/Bureau/Ed25519Check/validation_output_20260326T211012Z/ed25519_v2
+Started: 2026-03-26T21:10:16Z
+
+╔════════════════════════════════════════════════════════════╗
+║  Ed25519 Independent Verification  v2.1.0                 ║
+║  Zero dependencies — self-contained 256-bit arithmetic    ║
+╚════════════════════════════════════════════════════════════╝
+
+================================================================
+  STEP 1: Verify p = 2^255 - 19 is prime
+================================================================
+
+  p = 57896044618658097711785492504343953926634992332820282019728792003956564819949
+  p has 255 bits
+  p == 2^255-19: YES
+  Miller-Rabin (20 bases)... PRIME
+
+================================================================
+  STEP 2: Verify d = -121665/121666 mod p
+================================================================
+
+  d (hex) = 52036cee2b6ffe738cc740797779e89800700a4d4141d8ab75eb4dca135978a3
+  d·121666 + 121665 ≡ 0: YES
+  d is quadratic non-residue: YES (complete addition law holds)
+
+================================================================
+  STEP 3: Compute base point B from y = 4/5 mod p
+================================================================
+
+  y = 4·5⁻¹ mod p
+  y (hex) = 6666666666666666666666666666666666666666666666666666666666666658
+  5·y == 4: YES
+  y == 0x6666...6658: YES
+  sqrt(x²) exists: YES
+  x (hex) = 216936d3cd6e53fec0a4e231fdd6dc5c692cc7609525a7b2c9562d608f25d51a
+  x == 0x216936d3...d51a: YES
+  -x²+y² = 1+d·x²·y²: VERIFIED
+
+================================================================
+  STEP 4: Verify order of base point
+================================================================
+
+  l = 7237005577332262213973186563042994240857116359379907606001950938285454250989
+  (253 bits)
+
+  4a. l prime (MR)... YES
+  4b. [l]B == O ... 0.00s → YES
+  4c. l prime ∧ [l]B=O ∧ B≠O → ord(B)=l  (Lagrange)
+  4d. [l-1]B == -B ... 0.00s → YES
+  4e. [8]B ≠ O: YES
+
+================================================================
+  STEP 5: Verify curve model conversions
+================================================================
+
+  Edwards → Montgomery: ok
+  On Montgomery (Bv²=u³+Au²+u): YES
+  A == 486662: YES
+  On Weierstrass (Y²=X³+aX+b): YES
+  Round-trip Weier→Edwards: YES
+  Discriminant ≠ 0: YES
+
+================================================================
+  STEP 6: Cofactor structure
+================================================================
+
+  (0,-1) on curve: YES
+  [2](0,-1) = O: YES  (order 2)
+  Order-4 point: YES
+  Order-8 point found (attempt 2)
+  → 8 | #E → h ≥ 8 → h = 8 (with Hasse + l prime)
+
+================================================================
+  STEP 7: Group order via Schoof
+================================================================
+
+  Running on Weierstrass model derived from Ed25519.
+  This may take hours on standard hardware.
+
+
+================================================================
+  SCHOOF — Point counting on Y²=X³+aX+b
+================================================================
+
+  [    0.0s] l=  2  (M: 1 bits)
+           t≡0 (mod 2)
+  [    0.0s] l=  3  (M: 2 bits)
+           ψ_3... deg=4
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 1
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           t≡0 (mod 3)  [y: φ²P=-[q]P ✓]
+  [    0.1s] l=  5  (M: 3 bits)
+           ψ_5... deg=12
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 4
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..2
+           x-match for tau=2 — checking sign
+           sign: -tau → t≡3 (mod 5)
+  [    0.2s] l=  7  (M: 5 bits)
+           ψ_7... deg=24
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 3
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..3
+           x-match for tau=2 — checking sign
+           sign: -tau → t≡5 (mod 7)
+  [    0.3s] l= 11  (M: 8 bits)
+           ψ_11... deg=60
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 2
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..5
+           x-match for tau=5 — checking sign
+           sign: -tau → t≡6 (mod 11)
+  [    1.0s] l= 13  (M: 12 bits)
+           ψ_13... deg=84
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 2
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           t≡0 (mod 13)  [y: φ²P=-[q]P ✓]
+  [    2.1s] l= 17  (M: 15 bits)
+           ψ_17... deg=144
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 7
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..8
+           x-match for tau=5 — checking sign
+           sign: -tau → t≡12 (mod 17)
+  [    5.6s] l= 19  (M: 19 bits)
+           ψ_19... deg=180
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 8
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..9
+           x-match for tau=8 — checking sign
+           sign: +tau → t≡8 (mod 19)
+  [   11.9s] l= 23  (M: 24 bits)
+           ψ_23... deg=264
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 8
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..11
+           x-match for tau=8 — checking sign
+           sign: -tau → t≡15 (mod 23)
+  [   25.1s] l= 29  (M: 28 bits)
+           ψ_29... deg=420
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 18
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..14
+           x-match for tau=9 — checking sign
+           sign: -tau → t≡20 (mod 29)
+  [   64.0s] l= 31  (M: 33 bits)
+           ψ_31... deg=480
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 13
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..15
+           x-match for tau=15 — checking sign
+           sign: +tau → t≡15 (mod 31)
+  [  155.9s] l= 37  (M: 38 bits)
+           ψ_37... deg=684
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 26
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..18
+           x-match for tau=9 — checking sign
+           sign: +tau → t≡9 (mod 37)
+  [  260.6s] l= 41  (M: 43 bits)
+           ψ_41... deg=840
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 31
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..20
+           x-match for tau=14 — checking sign
+           sign: +tau → t≡14 (mod 41)
+  [  508.8s] l= 43  (M: 49 bits)
+           ψ_43... deg=924
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 32
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..21
+           x-match for tau=8 — checking sign
+           sign: -tau → t≡35 (mod 43)
+  [  708.0s] l= 47  (M: 54 bits)
+           ψ_47... deg=1104
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 32
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..23
+           x-match for tau=12 — checking sign
+           sign: +tau → t≡12 (mod 47)
+  [ 1080.9s] l= 53  (M: 60 bits)
+           ψ_53... deg=1404
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 39
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..26
+           x-match for tau=16 — checking sign
+           sign: +tau → t≡16 (mod 53)
+  [ 1972.2s] l= 59  (M: 65 bits)
+           ψ_59... deg=1740
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 28
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..29
+           x-match for tau=18 — checking sign
+           sign: +tau → t≡18 (mod 59)
+  [ 3703.8s] l= 61  (M: 71 bits)
+           ψ_61... deg=1860
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 53
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..30
+           x-match for tau=14 — checking sign
+           sign: -tau → t≡47 (mod 61)
+  [ 5187.2s] l= 67  (M: 77 bits)
+           ψ_67... deg=2244
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 34
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..33
+           x-match for tau=30 — checking sign
+           sign: +tau → t≡30 (mod 67)
+  [13322.2s] l= 71  (M: 83 bits)
+           ψ_71... deg=2520
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 11
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..35
+           x-match for tau=13 — checking sign
+           sign: -tau → t≡58 (mod 71)
+  [16138.9s] l= 73  (M: 89 bits)
+           ψ_73... deg=2664
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 62
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..36
+           x-match for tau=8 — checking sign
+           sign: +tau → t≡8 (mod 73)
+  [18762.4s] l= 79  (M: 96 bits)
+           ψ_79... deg=3120
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 78
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..39
+           x-match for tau=4 — checking sign
+           sign: +tau → t≡4 (mod 79)
+  [22517.0s] l= 83  (M: 102 bits)
+           ψ_83... deg=3444
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 78
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..41
+           x-match for tau=9 — checking sign
+           sign: -tau → t≡74 (mod 83)
+  [27881.2s] l= 89  (M: 108 bits)
+           ψ_89... deg=3960
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 74
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..44
+           x-match for tau=42 — checking sign
+           sign: -tau → t≡47 (mod 89)
+  [89928.6s] l= 97  (M: 115 bits)
+           ψ_97... deg=4704
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 60
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..48
+           x-match for tau=39 — checking sign
+           sign: +tau → t≡39 (mod 97)
+  [161953.6s] l=101  (M: 121 bits)
+           ψ_101... deg=5100
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 50
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..50
+           x-match for tau=8 — checking sign
+           sign: +tau → t≡8 (mod 101)
+  [176825.8s] l=103  (M: 128 bits)
+           ψ_103... deg=5304
+           x^p...ok  x^{p²}...ok
+           q = p mod l = 85
+           f^{(p-1)/2}...ok
+           f^{(p²-1)/2}...ok
+           testing tau 1..51
+           x-match for tau=9 — checking sign
+           sign: -tau → t≡94 (mod 103)
+  *** M has 135 bits (≥131) — CRT product sufficient ***
+
+
+  Schoof: 193828.9s  primes used: 27  skipped: 0
+  trace |t| = -221938542218978828286815502327069187962
+  #E = 57896044618658097711785492504343953926856930875039260848015607506283634007912
+
+================================================================
+  STEP 8: Compare with expected Ed25519 values
+================================================================
+
+  #E == expected: YES
+  #E == 8·l: YES (cofactor h=8)
+
+================================================================
+  SUMMARY
+================================================================
+
+  Total: 193828.9 s
+  External dependencies: NONE
+  All EC operations coded from mathematical definitions.
+  Expected Ed25519 constants used ONLY for final comparison.
+	Command being timed: "/home/utilisateur/Bureau/Ed25519Check/validation_output_20260326T211012Z/ed25519_v2"
+	User time (seconds): 193758.77
+	System time (seconds): 70.16
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 53:50:58
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 21888
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 21696417
+	Voluntary context switches: 1
+	Involuntary context switches: 1646416
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+
+Finished: 2026-03-29T03:01:15Z
