@@ -158,12 +158,22 @@ run_validation.sh           Automated build-run-hash script
 SCHOOF_EXPLAINED.md         Pedagogical companion on Schoof's algorithm
 LICENSE                     MIT license
 
-verification/
-  verification.log          Complete execution output (54h run)
-  system_info.txt           Hardware, OS, compiler details
-  build.log                 Compilation output (zero warnings)
-  hashes.txt                SHA-256 checksums of all artifacts
-  hashes.txt.asc            PGP signature over hashes.txt
+verifications/
+  README.md                 Index of independent validation runs
+
+  linux-x86_64-minipc-2026-03/
+    verification.log        Complete execution output
+    system_info.txt         Hardware, OS, compiler details
+    build.log               Compilation output
+    hashes.txt              SHA-256 checksums of all artifacts
+    hashes.txt.asc          PGP signature over hashes.txt
+
+  macos-arm64-m1-2026-03/
+    verification.log        Complete execution output
+    system_info.txt         Hardware, OS, compiler details
+    build.log               Compilation output
+    hashes.txt              SHA-256 checksums of all artifacts
+    hashes.txt.asc          PGP signature over hashes.txt
 
 pgp/
   philipperackette.asc      Author's PGP public key
