@@ -85,7 +85,7 @@ The full verification was executed on a miniPC (AMD Ryzen 3 3250U, 6 GB RAM, Lin
   #E == 8·l: YES (cofactor h=8)
 ```
 
-The complete execution log, system information, and SHA-256 hashes are available in the [`verification/`](verification/) directory. The hash manifest is signed with my PGP key (fingerprint `BC69 21A8 5B8D DBB5 F3A6 EB81 9055 4E6A 6924 F3C7`).
+The complete execution log, system information, and SHA-256 hashes are available in the [`verifications/`](verifications/) directory. The hash manifest is signed with my PGP key (fingerprint `BC69 21A8 5B8D DBB5 F3A6 EB81 9055 4E6A 6924 F3C7`).
 
 ---
 
