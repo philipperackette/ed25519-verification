@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show compiler version
+        run: g++ --version
+
+      - name: Compile
+        run: |
+          g++ -std=c++17 -O2 -Wall -Wextra -pedantic -o ed25519_verify main.cpp
+
+      - name: Run generator-only check
+        run: |
+          ./ed25519_verify --generator-only
+
+      - name: Run small test
+        run: |
+          ./ed25519_verify --small-test
