@@ -20,7 +20,7 @@ jobs:
 
       - name: Compile
         run: |
-          g++ -std=c++17 -O2 -Wall -Wextra -pedantic -o ed25519_verify main.cpp
+          g++ -std=c++17 -O2 -Wall -Wextra -pedantic -o ed25519_verify ed25519_verify.cpp
 
       - name: Run generator-only check
         run: |
