@@ -1,5 +1,8 @@
 # Ed25519 Verification from First Principles
 
+[![CI](https://github.com/philipperackette/ed25519-curve-verification/actions/workflows/ci.yml/badge.svg)](https://github.com/philipperackette/ed25519-curve-verification/actions/workflows/ci.yml)
+
+
 **A standalone C++17 program that independently proves the correctness of every Ed25519 elliptic curve parameter — from primality of the field modulus to the exact group order via Schoof's algorithm.**
 
 No GMP. No OpenSSL. No external dependencies. One file, ~1500 lines, pure arithmetic.
